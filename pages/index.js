@@ -1,9 +1,13 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useAuth } from '../context/AuthContext';
+import { usePins } from '../context/PinsContext';
 import Layout from '../components/Layout';
+import MasonryLayout from '../components/MasonryLayout';
 
-export default function Home() {
+export default function Feed() {
 	const { user } = useAuth();
+	const { pins } = usePins();
 
 	return (
 		<>
@@ -13,7 +17,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Layout user={user}>
-				<div>Hello</div>
+				<MasonryLayout pins={pins} />
 			</Layout>
 		</>
 	);
